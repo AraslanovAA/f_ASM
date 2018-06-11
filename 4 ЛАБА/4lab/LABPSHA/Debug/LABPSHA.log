@@ -1,0 +1,4 @@
+﻿  Assembling assembler.asm...
+assembler.asm(36): warning A6004: procedure argument or local not referenced : n
+  LABPSHA.vcxproj -> C:\Users\User\Desktop\4_не включается\4 ЛАБА\4lab\Debug\LABPSHA.exe
+  LABPSHA.vcxproj -> C:\Users\User\Desktop\4_не включается\4 ЛАБА\4lab\Debug\LABPSHA.pdb (Full PDB)

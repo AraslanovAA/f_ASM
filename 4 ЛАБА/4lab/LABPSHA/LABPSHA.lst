@@ -1,0 +1,86 @@
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    06/06/18 11:50:23
+assembler.asm						     Page 1 - 1
+
+
+				.MODEL FLAT, C
+ 00000000			.CODE
+ 00000000			my_assembler proc C n : dword;
+
+				       
+ 00000003  8B D8				mov ebx, eax
+
+ 00000005  BE 00000002				mov esi, 2
+
+ 0000000A				LOOP1:
+ 0000000A  3B F3		        cmp esi, ebx
+ 0000000C  74 0F				JZ LOOP_end0
+ 0000000E  33 C0				xor eax, eax
+
+ 00000010						LOOP2:
+ 00000010  03 C6				add eax,esi
+ 00000012  3B C3					cmp eax, ebx
+ 00000014  72 FA					jnae LOOP2
+
+ 00000016  3B C3					cmp eax, ebx
+ 00000018  74 0A					jz LOOP_end1
+
+ 0000001A  46						inc esi
+ 0000001B  EB ED					jmp LOOP1
+
+
+ 0000001D					LOOP_end0:
+ 0000001D  B8 00000002				mov eax, 2
+							ret
+
+
+ 00000024						LOOP_end1:
+ 00000024  B8 00000001				mov eax, 1
+							ret
+
+ 0000002B			my_assembler endp
+assembler.asm(36) : warning A6004:procedure argument or local not referenced : n
+				end
+
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    06/06/18 11:50:23
+assembler.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000002B Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+my_assembler . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000002B Public C
+  n  . . . . . . . . . . . . . .	DWord	 bp + 00000008
+  LOOP1  . . . . . . . . . . . .	L Near	 0000000A _TEXT	
+  LOOP2  . . . . . . . . . . . .	L Near	 00000010 _TEXT	
+  LOOP_end0  . . . . . . . . . .	L Near	 0000001D _TEXT	
+  LOOP_end1  . . . . . . . . . .	L Near	 00000024 _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000001h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+
+	   1 Warnings
+	   0 Errors
